@@ -1,0 +1,30 @@
+{
+    "name": "dmamontov/rararchiver",
+    "description": "Class for working with archives RAR.",
+    "type": "library",
+    "keywords": ["rar", "archives", "winrar", "archiver"],
+    "version": "1.0.0",
+    "license": "BSD-3-Clause",
+    "homepage": "http://www.slobel.ru/",
+    "authors": [
+        {
+            "name": "Dmitry Mamontov",
+            "email": "hello@slobel.ru",
+            "role": "lead"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.11"
+    },
+    "support": {
+        "email": "support@slobel.ru"
+    },
+    "autoload": {
+    	"files": ["RarArchiver.php"]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.0.x-dev"
+        }
+    }
+}
