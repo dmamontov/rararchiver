@@ -1,0 +1,9 @@
+.vs
+.vs/*
+./vendor
+.vsphpignore
+*.intellisense.cache
+*.phpproj
+*.sln
+*.puo
+php.ini

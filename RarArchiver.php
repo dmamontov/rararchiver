@@ -668,6 +668,8 @@ class RarArchiver
             return false;
         }
 
+        $newname = $this->clearSeparator($newname);
+
         $currentFileObject = $this->fileObject;
         $currentFileObject->rewind();
 
@@ -743,6 +745,9 @@ class RarArchiver
         if (in_array($name, $this->tree) === false || empty($name) || empty($newname) || $this->fileObject->getSize() < 0) {
             return false;
         }
+
+        $name = $this->clearSeparator($name);
+        $newname = $this->clearSeparator($newname);
 
         $currentFileObject = $this->fileObject;
         $currentFileObject->rewind();
@@ -889,6 +894,8 @@ class RarArchiver
         if (in_array($name, $this->tree) === false || empty($name) || $this->fileObject->getSize() < 0) {
             return false;
         }
+
+        $name = $this->clearSeparator($name);
 
         $currentFileObject = $this->fileObject;
         $currentFileObject->rewind();
