@@ -338,6 +338,7 @@ class RarArchiver
         }
 
         $bytes = array_merge(array($type, array($flags, 2), array($size, 2)), $data);
+        $header = '';
         for ($i = 0; $i < count($bytes); $i++) {
             if (is_array($bytes[$i])) {
                 $header .= $this->getBytes($bytes[$i][0], $bytes[$i][1]);
