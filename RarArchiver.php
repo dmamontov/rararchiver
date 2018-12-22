@@ -143,21 +143,25 @@ class RarArchiver
      */
     final public function __destruct()
     {
-		// repair archive for proper compression and create recovery records (requires Unix rar or WinRAR)
-		$windows = strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ? true : false;
-		if (!$windows && `which rar`)
-			shell_exec('rar -r -ma4 -av -rr ' . $this->filename);
-		else
+		if (is_callable('shell_exec') && false === stripos(ini_get('disable_functions'), 'shell_exec'))
 		{
-			// WinRAR must reside in a default installation directory to detect it
-			if (is_dir("\Program Files (x86)\WinRAR"))
-				@chdir("\Program Files (x86)\WinRAR");
-			elseif (is_dir("\Program Files\WinRAR"))
-				@chdir("\Program Files\WinRAR");
+			// repair archive for proper compression and create recovery records (requires Unix rar or WinRAR)
+			$windows = strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ? true : false;
+			if (!$windows && `which rar`)
+				shell_exec('rar -r -ma4 -av -rr ' . $this->filename);
+			else
+			{
+				// WinRAR must reside in a default installation directory to detect it
+				if (is_dir("\Program Files (x86)\WinRAR"))
+					@chdir("\Program Files (x86)\WinRAR");
+				elseif (is_dir("\Program Files\WinRAR"))
+					@chdir("\Program Files\WinRAR");
 
-			if (`where WinRAR.exe`)
-				shell_exec('rar -r -m4 -av -rr ' . $this->filename);
+				if (`where WinRAR.exe`)
+					shell_exec('rar -r -m4 -av -rr ' . $this->filename);
+			}
 		}
+
 		unset($this->fileObject);
     }
 
