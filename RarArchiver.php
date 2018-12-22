@@ -146,7 +146,7 @@ class RarArchiver
 		// repair archive for proper compression and create recovery records (requires Unix rar or WinRAR)
 		$windows = strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ? true : false;
 		if (!$windows && `which rar`)
-			shell_exec('rar -r -ep1 -ed -ma4 -av -k -rr ' . $this->filename);
+			shell_exec('rar -r -ma4 -av -rr ' . $this->filename);
 		else
 		{
 			// WinRAR must reside in a default installation directory to detect it
@@ -156,7 +156,7 @@ class RarArchiver
 				@chdir("\Program Files\WinRAR");
 
 			if (`where WinRAR.exe`)
-				shell_exec('rar -r -ep1 -ed -m4 -av -k -rr ' . $this->filename);
+				shell_exec('rar -r -m4 -av -rr ' . $this->filename);
 		}
 		unset($this->fileObject);
     }
