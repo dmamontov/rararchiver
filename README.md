@@ -1,6 +1,8 @@
 [![Latest Stable Version](https://poser.pugx.org/dmamontov/rararchiver/v/stable.svg)](https://packagist.org/packages/dmamontov/rararchiver)
 [![License](https://poser.pugx.org/dmamontov/rararchiver/license.svg)](https://packagist.org/packages/dmamontov/rararchiver)
 
+# In the process version 2.0.
+
 RarArchiver
 ===========
 
